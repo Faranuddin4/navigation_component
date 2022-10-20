@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@+id/titleScreen">
+
+    <fragment
+        android:id="@+id/titleScreen"
+        android:name="com.example.seesionnavigationcomponent.homescreen.Title"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_title">
+
+    </fragment>
+    <action
+        android:id="@+id/action_title_to_about"
+        app:destination="@id/aboutScreen"/>
+    <fragment
+        android:id="@+id/aboutScreen"
+        android:name="com.example.seesionnavigationcomponent.homescreen.About"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutScreen_to_dataFragment"
+            app:destination="@id/dataFragment" />
+        <action
+            android:id="@+id/action_aboutScreen_to_safeArgs"
+            app:destination="@id/safeArgs" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.example.seesionnavigationcomponent.homescreen.DataFragment"
+        android:label="fragment_data"
+        tools:layout="@layout/fragment_data" />
+    <fragment
+        android:id="@+id/safeArgs"
+        android:name="com.example.seesionnavigationcomponent.homescreen.SafeArgs"
+        android:label="fragment_safe_args"
+        tools:layout="@layout/fragment_safe_args">
+        <argument
+            android:name="person"
+            app:argType="com.example.seesionnavigationcomponent.homescreen.model.Person" />
+    </fragment><action android:id="@+id/action_global_titleScreen" app:destination="@id/titleScreen"/>
+</navigation>

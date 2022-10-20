@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    app:startDestination="@+id/leaderboard">
+
+    <fragment
+            android:id="@+id/leaderboard"
+            android:name="com.example.seesionnavigationcomponent.listscreen.Leaderboard"
+            android:label="@string/title_list"
+            tools:layout="@layout/fragment_leaderboard">
+        <action
+            android:id="@+id/action_leaderboard_to_userProfile"
+            app:destination="@id/userProfile"/>
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.example.seesionnavigationcomponent.listscreen.UserProfile"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_user_profile">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.example.com/user/{userName}"
+            android:autoVerify="true"/>
+        <argument
+            android:name="userName"
+            app:argType="string"/>
+    </fragment><action android:id="@+id/action_global_leaderboard" app:destination="@id/leaderboard"/>
+</navigation>
